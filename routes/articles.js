@@ -20,7 +20,7 @@ const auth = require('../middleware/auth')
 */
 // 如需获取某个分类下的所有文章，通过参数传递条件即可
 // 获取全部
-router.get('/', auth, articles.getAll)
+router.get('/', articles.getAll)
 // 获取某个
 router.get('/:aid', auth, articles.get)
 // 添加新的文章

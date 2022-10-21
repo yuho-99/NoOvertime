@@ -7,6 +7,8 @@ module.exports = (validator) => {
     // 取出数据 和 判断是否出现错误
     const { error, value } = validator(req.body)
     // 如果有错误，说明不满足规则， 返回一个错误码，和错误的详细内容
+    console.log(error)
+    
     if (error) {
       return res.status(400).json({
         code: 400,

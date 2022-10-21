@@ -12,6 +12,10 @@ router.use('/auth', require('./auth'))
 router.use('/categories', require('./categories'))
 // 引入 文章接口
 router.use('/articles', require('./articles'))
-
+// 引入 技术导航接口
+router.use('/tech-nav', require('./techNav'))
+// 书签
+// 引入 技术导航接口
+router.use('/manual', require('./manual'))
 // 导出模块
 module.exports = router

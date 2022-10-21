@@ -8,9 +8,9 @@ exports.getAll = async (req, res, next) => {
     // 获取所有文章
     // 1,判断是否传递筛选参数,例如分类筛选或草稿状态
     let data
-    const { status, category } = req.query
+    const { status, category, author } = req.query
     // 判断 如果两个参数有一个的话 就按照参数筛选查询
-    if ( status || category ) {
+    if ( status || category || author ) {
       //  查询数据库
       data = await Article.find(req.query)
     } else {
@@ -52,9 +52,11 @@ exports.get = async (req, res, next) => {
   try {
     // 1,根据id获取数据
     const id = req.params.aid
+    console.log(id)
     // 2,查找数据库
     // 通过populate()方法链表查询关联 category和author
     const data = await Article.findById(id).populate('category author', 'name')
+    console.log(data)
     // 2,检测是否存在数据
     if (!data) {
       return res.status(400).json({
@@ -76,6 +78,7 @@ exports.get = async (req, res, next) => {
     next(err)
   }
 }
+
 // 编辑单个
 exports.update = async (req, res, next) => {
   try {

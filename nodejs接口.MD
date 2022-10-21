@@ -20,7 +20,7 @@ npm i express
 - 在 app.js 入口文件引入 
 
 ```js
-//. app.js
+// app.js
 const express = require('express')
 
 // 创建 express 实例对象 

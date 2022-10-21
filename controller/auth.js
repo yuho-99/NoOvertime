@@ -34,10 +34,17 @@ exports.test = async (req, res, next) => {
     res.status(200).json({
       code: 200,
       msg: '登录成功',
-      // 获取生成的token信息
-      authorization: {
-        access_token: user.generateToken()
+      value: {
+        // 获取生成的token信息
+          access_token: user.generateToken(),
+            _id: user._id
+
+
       }
+      // authorization: {
+      // },
+      // id: {
+      // }
     })
   } catch (err) {
      // 如果出现报错，会进入catch执行， 使用错误中间件 统一处理

@@ -15,7 +15,7 @@ const auth = require('../middleware/auth')
 
 // 鉴权中间件使用方法 ：  直接将auth设置在参数中   / 如果引入了 规则校验 则已数组的形式书写在参数中，将auth写在数据校验前
 // 注册接口设置
-router.post('/', [ auth,validator(userValidator) ], user.register)
+router.post('/', validator(userValidator), user.register)
 // 获取用户接口设置
 router.get('/', auth, user.getInfo)
 // 编辑/更新用户

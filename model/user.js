@@ -49,7 +49,7 @@ userSchema.methods.generateToken = function () {
   // 由于要使用  this  所以不要使用箭头函数，会改变this的指向，直接使用函数声明就可以
   return jwt.sign({
     _id: this._id
-  }, config.jwtPrivateKey)
+  }, config.jwtPrivateKey, {expiresIn: '1h'})
 }
 
 // 创建user model 
